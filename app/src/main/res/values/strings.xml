@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Blind and Deaf Society</string>
+    <string name="Home">Home</string>
+    <string name="help_prompt"> Help Our \n Mission</string>
+    <string name="donate_now">Donate</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home\n</string>
+    <string name="shop">Shop</string>
+    <string name="shopping">Shopping</string>
+    <string name="events">Events</string>
+    <string name="about">About Us</string>
+    <string name="UpComingEvents">UpComing Event</string>
+    <string name="EventTitle">Event Title</string>
+    <string name="description">description \n</string>
+    <string name="shopping_title">Shopping Title</string>
+    <string name="See_all">See All</string>
+    <string name="aboutUsHeading">The KwaZulu-Natal Blind and Deaf Society was established in 1936</string>
+    <string name="aboutUsParagraph">...their purpose, providing services and opportunities that ultimately improve the quality of life of Blind and Partially-Sighted people. During the 1960s we extended our services to the Deaf and Hard of Hearing people.\nThe Society currently reaches the poor, unemployed African people living in rural areas who do not have the finances or ability to receive services. The greatest challenge that the Society faces, is how to improve these unfortunate individuals quality of life. The sad situation is that these almost forgotten people are not only deprived, but also disabled, which leaves them feeling very inadequate and incapable, and the sad fact is that most of them receive no external assistance.</string>
+    <string name="statement">To be the premier provider of services and opportunities that ultimately improve the quality of life of Blind, Deaf, Deafblind persons.</string>
+    <string name="statement_title">statement</string>
+    <string name="memberName">Member\n</string>
+    <string name="MemberTitle"><![CDATA[KwaZulu-Natal Blind & Deaf Society Board Members]]></string>
+    <string name="eventDetails">Event Details</string>
+    <string name="eventDescription">Event Discription</string>
+    <string name="shoppingDetails">Shopping Title</string>
+    <string name="shoppingDescription">shopping description</string>
+    <string name="Donations">Donations\n</string>
+    <string name="Contribution">Your \n Contribution \n means the \n world!</string>
+    <string name="title_activity_testing">testing</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="Payments">Payment</string>
+
+
+</resources>

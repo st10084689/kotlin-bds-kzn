@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DonationPersonalInfo">
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:id="@+id/top_section"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="-5dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/main_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="232dp"
+                    android:background="@drawable/background_image_1"/>
+
+                <RelativeLayout
+                    android:id="@+id/menu_relative"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    >
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="50dp"
+                        android:layout_marginLeft="35dp"
+                        >
+                        <RelativeLayout
+                            android:id="@+id/on_back_button"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="?attr/selectableItemBackground">
+
+
+                            <View
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_centerInParent="true"
+                                android:background="@drawable/baseline_arrow_back_24" />
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+
+
+
+
+                </RelativeLayout>
+                <TextView
+                    android:id="@+id/home_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Contribution"
+                    android:textSize="36dp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    />
+            </RelativeLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="-20dp"
+                android:id="@+id/main_content_background"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/top_section"
+                app:cardElevation="0dp"
+                app:cardCornerRadius="24dp"
+                >
+
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:id="@+id/heading_section"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_marginLeft="35dp"
+                            android:id="@+id/DonationsTxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:text="@string/Donations"
+                            android:textSize="25dp"
+                            android:fontFamily="@font/monserrat_bold"
+                            android:textColor="@color/black"
+                            />
+                        <ImageView
+                            android:id="@+id/DonationsUnderline"
+                            android:layout_marginLeft="35dp"
+                            android:layout_below="@id/DonationsTxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/underline"
+                            />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/heading_section"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="30dp">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/nameRecycler">
+
+                            <Spinner
+                                android:id="@+id/NameSpinner"
+                                android:entries="@array/name_array"
+                                android:background="@drawable/title_spinner"
+                                android:layout_width="71dp"
+                                android:text="Type"
+                                android:textStyle="bold"
+                                android:textAlignment="center"
+                                android:gravity="center"
+                                android:textSize="20sp"
+                                android:fontFamily="@font/monserrat_bold"
+                                android:textColor="@color/black"
+                                android:spinnerMode="dropdown"
+                                android:layout_height="51dp" />
+
+                            <EditText
+                                android:id="@+id/Name"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_marginLeft="8dp"
+                                android:inputType="text"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
+                                android:layout_toRightOf="@id/NameSpinner"
+                                android:background="@drawable/donation_option_background"
+                                android:fontFamily="@font/montserrat_semi_bold"
+                                android:hint="Name"
+                                android:textAlignment="center"
+                                android:textSize="20sp" />
+                        </RelativeLayout>
+
+                        <EditText
+                            android:id="@+id/surname"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_below="@id/nameRecycler"
+                            android:layout_marginTop="30dp"
+                            android:inputType="text"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:hint="Surname"
+                            android:textSize="20sp"
+                            android:textAlignment="center"
+                            android:fontFamily="@font/montserrat_semi_bold"
+                            android:background="@drawable/donation_option_background"/>
+
+
+                        <RelativeLayout
+                            android:id="@+id/companyCheckBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/surname"
+                            android:layout_marginTop="20dp">
+                            <CheckBox
+                                android:id="@+id/IscCompanyCheckBox"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_centerVertical="true"
+                                android:button="@drawable/check_box_item"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="25dp"
+                                android:layout_toRightOf="@id/IscCompanyCheckBox"
+                                android:layout_centerVertical="true"
+                                android:text="Is this donation on behalf \n of company?"/>
+                        </RelativeLayout>
+
+                        <EditText
+                            android:id="@+id/Email"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_below="@id/companyCheckBox"
+                            android:layout_marginTop="30dp"
+                            android:inputType="text"
+                            android:hint="Email"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:textSize="20sp"
+                            android:textAlignment="center"
+                            android:fontFamily="@font/montserrat_semi_bold"
+                            android:background="@drawable/donation_option_background"/>
+
+
+                        <EditText
+                            android:id="@+id/comment"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_below="@id/Email"
+                            android:layout_marginTop="30dp"
+                            android:hint="Leave a Comment"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:inputType="text"
+                            android:textSize="20sp"
+                            android:textAlignment="center"
+                            android:fontFamily="@font/montserrat_semi_bold"
+                            android:background="@drawable/donation_option_background"/>
+
+
+                        <RelativeLayout
+                            android:id="@+id/anonymousCheckBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/comment"
+                            android:layout_marginTop="20dp">
+                            <CheckBox
+                                android:id="@+id/IsAnonymousCheckBox"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:button="@drawable/check_box_item"
+                                android:buttonTint="@color/orange"
+                                android:gravity="center"
+
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@id/IsAnonymousCheckBox"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="25dp"
+                                android:text="Make donation anonymous?"/>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/termsCheckBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/anonymousCheckBox"
+                            android:layout_marginTop="20dp">
+
+                            <CheckBox
+                                android:id="@+id/IsTermsCheckBox"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:button="@drawable/check_box_item" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@id/IsTermsCheckBox"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="25dp"
+                                android:text="Agree to terms? "/>
+
+                            <TextView
+                                android:id="@+id/termsTxt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentEnd="true"
+                                android:text="Show terms "/>
+
+
+                        </RelativeLayout>
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/donateButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/termsCheckBox"
+                            android:layout_marginTop="30dp"
+                            android:textSize="18sp"
+                            android:text="Continue"
+                            android:textColor="@color/white"
+                            android:textAlignment="center"
+                            android:fontFamily="@font/montserrat_semi_bold"
+                            android:background="@drawable/resource_continue"
+                            android:layout_marginBottom="15dp"/>
+
+
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+
+
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

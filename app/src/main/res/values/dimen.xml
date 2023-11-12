@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="small_item_height">170dp</dimen>
+    <dimen name="large_item_height">200dp</dimen>
+
+    <dimen name="phone_margin">16dp</dimen>
+    <dimen name="tablet_margin">70dp</dimen>
+    <dimen name="phone_margin_bottom">10dp</dimen>
+    <dimen name="tablet_margin_bottom">30dp</dimen>
+</resources>

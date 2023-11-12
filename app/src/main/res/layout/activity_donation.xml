@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DonationActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:id="@+id/top_section"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="-5dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/main_image"
+                android:layout_width="match_parent"
+                android:layout_height="232dp"
+                android:background="@drawable/background_image_donations"/>
+
+            <RelativeLayout
+                android:id="@+id/menu_relative"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                >
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="50dp"
+                    android:layout_marginLeft="35dp"
+                    >
+                    <RelativeLayout
+                        android:id="@+id/on_back_button"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?attr/selectableItemBackground">
+
+
+                        <View
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/baseline_arrow_back_24" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+
+
+
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/home_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Contribution"
+                android:textSize="36dp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/montserrat_regular"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                />
+        </RelativeLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginTop="-20dp"
+            android:id="@+id/main_content_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/top_section"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp"
+            >
+
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+            <RelativeLayout
+                android:id="@+id/heading_section"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft="35dp"
+                android:id="@+id/DonationsTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="@string/Donations"
+                android:textSize="25dp"
+                android:fontFamily="@font/monserrat_bold"
+                android:textColor="@color/black"
+                />
+            <ImageView
+                android:id="@+id/DonationsUnderline"
+                android:layout_marginLeft="35dp"
+                android:layout_below="@id/DonationsTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/underline"
+                />
+
+            </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/donationButtonsRel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/heading_section"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/tenDonation"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="R10"
+                android:textSize="28sp"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:background="@drawable/donation_option_background"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/FiftyDonation"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/tenDonation"
+                android:layout_marginTop="30dp"
+                android:text="R50"
+                android:textSize="28sp"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:background="@drawable/donation_option_background"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/HundredDonation"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/FiftyDonation"
+                android:textSize="28sp"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:layout_marginTop="30dp"
+                android:text="R100"
+                android:background="@drawable/donation_option_background"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/TwoHundredDonation"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/HundredDonation"
+                android:layout_marginTop="30dp"
+                android:text="R200"
+                android:textSize="28sp"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:background="@drawable/donation_option_background"/>
+
+        <TextView
+            android:id="@+id/or"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/TwoHundredDonation"
+            android:text="Or"
+            android:layout_marginTop="20dp"
+            android:textSize="18sp"
+            android:textColor="@color/grey"/>
+
+        <EditText
+        android:id="@+id/customDonation"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/or"
+        android:layout_marginTop="15dp"
+        android:hint="Enter Custom Amount"
+            android:inputType="number"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:background="@drawable/donation_option_background"/>
+
+
+
+    </RelativeLayout>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/continueButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/donationButtonsRel"
+        android:layout_marginTop="30dp"
+        android:textSize="18sp"
+        android:text="Continue"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="25dp"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:background="@drawable/resource_continue"/>
+
+</RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

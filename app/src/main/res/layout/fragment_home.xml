@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".HomeFragment">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:id="@+id/top_section"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="-5dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/main_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="232dp"
+                    android:background="@drawable/main_image_one"/>
+
+                <RelativeLayout
+                    android:id="@+id/menu_relative"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    >
+
+
+                    <TextView
+                        android:id="@+id/home_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Home"
+                        android:textSize="36dp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/monserrat_bold"
+                        android:layout_centerHorizontal="true"/>
+
+
+
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="-20dp"
+                android:id="@+id/main_content_background"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/top_section"
+                android:background="@drawable/main_content_background">
+
+                <RelativeLayout
+                    android:id="@+id/event_section"
+                    android:layout_marginTop="80dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_marginLeft="35dp"
+                        android:id="@+id/UpcomingEventsTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/UpComingEvents"
+                        android:textSize="25dp"
+                        android:fontFamily="@font/monserrat_bold"
+                        android:textColor="@color/black"
+                        />
+                    <ImageView
+                        android:id="@+id/UpcomingEventsUnderline"
+                        android:layout_marginLeft="35dp"
+                        android:layout_below="@id/UpcomingEventsTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/underline"
+                        />
+
+                    <RelativeLayout
+                        android:id="@+id/events_recycler_relative"
+                        android:layout_below="@id/UpcomingEventsUnderline"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:id="@+id/eventsError"
+                            android:layout_centerHorizontal="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="250dp"
+                            android:textAlignment="center"
+                            android:textSize="18sp"
+                            android:gravity="center"
+                            android:src="@drawable/perm_scan_wifi"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:textColor="@color/orange"
+                            android:layout_centerInParent="true"
+                            android:visibility="gone"
+                            />
+
+                        <!-- Add a ProgressBar for loading -->
+                        <ProgressBar
+                            android:id="@+id/loading_progress_events"
+                            android:layout_width="wrap_content"
+                            android:layout_height="250dp"
+                            android:indeterminateTint="@color/orange"
+                            android:layout_centerInParent="true" />
+
+                        <!-- Your RecyclerView -->
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/events_recycler"
+                            android:layout_marginTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/events_recycler_relative">
+
+                        <TextView
+                            android:id="@+id/event_see_all_txt"
+                            android:textSize="18sp"
+                            android:layout_marginRight="1dp"
+                            android:layout_toLeftOf="@id/event_see_all_chevron"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:textColor="@color/grey"
+                            android:text="@string/See_all"/>
+
+                        <ImageView
+                            android:id="@+id/event_see_all_chevron"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="1dp"
+                            android:background="@drawable/chevron_right"
+                            android:layout_width="25dp"
+                            android:layout_height="30dp"
+                            android:text="@string/See_all"/>
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/shopping_section"
+                    android:layout_below="@id/event_section"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/shoppping_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/shopping"
+                        android:layout_marginLeft="35dp"
+                        android:textSize="25dp"
+                        android:fontFamily="@font/monserrat_bold"
+                        android:textColor="@color/black"
+                        />
+                    <ImageView
+                        android:id="@+id/shopping_underline"
+                        android:layout_below="@id/shoppping_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="35dp"
+                        android:background="@drawable/underline"
+                        />
+            <RelativeLayout
+               android:layout_below="@id/shopping_underline"
+               android:id="@+id/shopping_recycler_relative"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+                 <ImageView
+                     android:id="@+id/shoppingError"
+                     android:layout_centerHorizontal="true"
+                     android:layout_width="wrap_content"
+                     android:layout_height="250dp"
+                     android:textSize="18sp"
+                     android:fontFamily="@font/montserrat_regular"
+                     android:textColor="@color/orange"
+                     android:gravity="center"
+                     android:layout_centerInParent="true"
+                     android:visibility="gone"
+                     android:src="@drawable/perm_scan_wifi"
+                    />
+                 <ProgressBar
+                     android:id="@+id/loading_progress_shopping"
+                     android:layout_width="wrap_content"
+                     android:layout_height="250dp"
+                     android:indeterminateTint="@color/orange"
+                     android:layout_centerInParent="true" />
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/shopping_recycler"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+</RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/shopping_recycler_relative">
+
+                        <TextView
+                            android:id="@+id/see_all_txt"
+                            android:textSize="18sp"
+                            android:layout_marginRight="1dp"
+                            android:layout_toLeftOf="@id/see_all_chevron"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:textColor="@color/grey"
+                            android:text="@string/See_all"/>
+
+                        <ImageView
+                            android:id="@+id/see_all_chevron"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="1dp"
+                            android:background="@drawable/chevron_right"
+                            android:layout_width="25dp"
+                            android:layout_height="30dp"
+                            android:text="@string/See_all"/>
+                    </RelativeLayout>
+                </RelativeLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_marginTop="-50dp"
+                android:id="@+id/content_section"
+                android:layout_below="@id/top_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:id="@+id/donate_section_background"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/donate_bar_background"
+                    android:layout_centerHorizontal="true"
+                    >
+
+                    <TextView
+                        android:id="@+id/donation_prompt_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_prompt"
+                        android:textSize="18dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="40dp"
+                        android:lineSpacingExtra="15sp"
+                        android:textColor="@color/white"/>
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/donation_button_background"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/donation_button_background"
+                        android:text="Donate"
+                        android:textColor="@color/grey"
+                        android:fontFamily="@font/roboto_meduim"
+                        android:layout_toRightOf="@id/donation_prompt_txt"
+                        android:layout_centerVertical="true"
+                        android:textSize="18sp"
+                        android:layout_marginLeft="30dp"
+                        />
+                </RelativeLayout>
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

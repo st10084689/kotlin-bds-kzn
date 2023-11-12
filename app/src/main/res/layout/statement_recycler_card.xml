@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="150dp"
+    android:layout_height="350dp"
+    android:layout_marginLeft="17dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="10dp"
+    app:cardCornerRadius="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/statement_badge"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/vision_statement"
+            />
+        <TextView
+            android:id="@+id/statement_title"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_below="@+id/statement_badge"
+            android:layout_width="103dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="5dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="@string/statement_title"/>
+
+        <TextView
+            android:id="@+id/statement_label"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:textSize="11sp"
+            android:textColor="@color/black"
+            android:layout_below="@+id/statement_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:gravity="center"
+            android:text="@string/statement"/>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
