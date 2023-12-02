@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Blind and Deaf Society</string>
+    <string name="app_name">KZN Blind and Deaf Society</string>
     <string name="Home">Home</string>
     <string name="help_prompt"> Help Our \n Mission</string>
     <string name="donate_now">Donate</string>
@@ -39,6 +39,8 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="Payments">Payment</string>
+    <string name="LearnSignLanguage">Learn Sign Language</string>
+    <string name="Services">Our Services</string>
 
 
 </resources>
