@@ -4,15 +4,15 @@ plugins {
 }
 
 android {
-    namespace 'com.example.kotlinkzn_bds'
+    namespace 'com.bds.kotlinkzn_bds'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.kotlinkzn_bds"
+        applicationId "com.bds.kotlinkzn_bds"
         minSdk 29
         targetSdk 33
-        versionCode 1
-        versionName "1.0"
+        versionCode 4
+        versionName "1.4"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -44,6 +44,4 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.squareup.okhttp3:okhttp:4.11.0'
-
-
 }

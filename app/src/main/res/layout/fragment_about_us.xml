@@ -125,8 +125,32 @@
                         android:layout_marginTop="13dp"
                         android:layout_marginBottom="20dp"
                         />
-</RelativeLayout>
 
+    <TextView
+        android:id="@+id/titleService"
+        android:layout_below="@id/memberRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Services"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="11dp"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:textSize="18sp"
+        android:textColor="@color/orange"
+        android:fontFamily="@font/montserrat_semi_bold"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ServicesRecycler"
+        android:layout_below="@id/titleService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:layout_marginBottom="20dp" />
+
+
+                    </RelativeLayout>
                 </androidx.cardview.widget.CardView>
             </RelativeLayout>
         </ScrollView>

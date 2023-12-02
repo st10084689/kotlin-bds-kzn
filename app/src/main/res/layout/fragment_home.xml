@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".HomeFragment">
     <ScrollView
         android:layout_width="match_parent"
@@ -97,7 +98,7 @@
                             android:visibility="gone"
                             />
 
-                        <!-- Add a ProgressBar for loading -->
+
                         <ProgressBar
                             android:id="@+id/loading_progress_events"
                             android:layout_width="wrap_content"
@@ -105,7 +106,7 @@
                             android:indeterminateTint="@color/orange"
                             android:layout_centerInParent="true" />
 
-                        <!-- Your RecyclerView -->
+
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/events_recycler"
                             android:layout_marginTop="10dp"

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignLanguage">
+
+    <RelativeLayout
+        android:id="@+id/top_section"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="-5dp"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/main_image"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:background="@drawable/sign_background_image"/>
+
+        <RelativeLayout
+            android:id="@+id/menu_relative"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+           >
+
+            <TextView
+                android:id="@+id/alphabetTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginEnd="166dp"
+                android:fontFamily="@font/monserrat_bold"
+                android:text="Sign Language"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <ImageView
+                android:id="@+id/DonationsUnderline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/alphabetTxt"
+                android:layout_alignStart="@id/alphabetTxt"
+                android:background="@drawable/underline"/>
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/main_content_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/top_section"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="0dp"
+        android:layout_marginTop="-20dp"
+        >
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+               <androidx.cardview.widget.CardView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_below="@id/alphabetSignsTxt"
+                   app:cardBackgroundColor="#E5E3E3"
+                   app:cardCornerRadius="20dp"
+                   android:layout_marginLeft="15dp"
+                   android:layout_marginRight="15dp"
+                   android:layout_marginBottom="15dp">
+
+                   <RelativeLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent">
+
+                   <androidx.recyclerview.widget.RecyclerView
+                       android:id="@+id/phraseSignRecycler"
+                       android:layout_marginTop="20dp"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"/>
+                   </RelativeLayout>
+
+               </androidx.cardview.widget.CardView>
+                    <TextView
+                        android:id="@+id/alphabetSignsTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:text="Phrases"
+                        android:layout_marginLeft="30dp"
+                        android:fontFamily="@font/montserrat_semi_bold"
+                        android:textColor="@color/black"
+                        android:elevation="5dp"
+                        android:textSize="20sp"
+                        android:layout_marginBottom="-12dp"
+                        />
+                </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/alphabetCardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_below="@id/phraseSignsTxt"
+                    app:cardBackgroundColor="#E5E3E3"
+                    app:cardCornerRadius="20dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/alphabetSignRecycler"
+                            android:layout_marginTop="20dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            />
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+                <TextView
+                    android:id="@+id/phraseSignsTxt"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="-12dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Alphabet"
+                    android:layout_marginLeft="30dp"
+                    android:fontFamily="@font/montserrat_semi_bold"
+                    android:textColor="@color/black"
+                    android:elevation="5dp"
+                    />
+        </RelativeLayout>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
