@@ -73,12 +73,12 @@ class EventsFragment : Fragment() {
                     eventPageRecycler.adapter = eventAdapter
                     eventsProgressBar.visibility = View.GONE
                 } else {
-                    // Handle unsuccessful response
+
                 }
             }
 
             override fun onFailure(call: Call<EventsResponse>, t: Throwable) {
-                // Handle network failure
+
                 Log.d(TAG, "onFailure e: + failed")
                 eventsError.visibility = View.VISIBLE
                 eventsProgressBar.visibility = View.GONE

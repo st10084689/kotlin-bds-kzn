@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import retrofit2.Call
@@ -20,6 +21,9 @@ class SignLanguage : Fragment() {
 
     private var phraseList: List<Phrase>? = null
     private var signsList: List<Sign>? = null
+    private lateinit var signProgBar:ProgressBar
+    private lateinit var alphabetTxt: TextView
+    private lateinit var phraseTxt: TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +36,13 @@ class SignLanguage : Fragment() {
     ): View? {
 
         val view = inflater.inflate(R.layout.fragment_sign_language, container, false)
+
+        signProgBar = view.findViewById(R.id.signProgressBar);
+        signProgBar.visibility = View.VISIBLE
+        alphabetTxt = view.findViewById(R.id.alphabetSignsTxt)
+        alphabetTxt.visibility = View.GONE
+        phraseTxt = view.findViewById(R.id.phraseSignsTxt)
+        phraseTxt.visibility = View.GONE
 
         getSignsData(view)
         getPhraseData(view)
@@ -59,6 +70,8 @@ class SignLanguage : Fragment() {
                     val alphabetAdapter = PhraseSignLanguageRecyclerAdapter(phraseList!!)
                     alphabetRecycler.adapter = alphabetAdapter
                     alphabetRecycler.visibility = View.VISIBLE
+                    signProgBar.visibility = View.GONE
+                    alphabetTxt.visibility = View.VISIBLE
                 } else {
 
                 }
@@ -92,6 +105,7 @@ class SignLanguage : Fragment() {
                     val Adapter = AlphabetSignLanguageRecyclerAdapter(signsList!!)
                     phraseRecycler.adapter = Adapter
                     phraseRecycler.visibility = View.VISIBLE
+                    phraseTxt.visibility = View.VISIBLE
                 } else {
 
                 }

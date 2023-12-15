@@ -23,7 +23,7 @@ class ShoppingDetailsPopup : DialogFragment() {
         dismissButton = view.findViewById(R.id.dismissButton)
 
         dismissButton.setOnClickListener {
-            dismiss() // Close the dialog
+            dismiss()
         }
 
         return view
@@ -38,7 +38,7 @@ class ShoppingDetailsPopup : DialogFragment() {
         listener?.onDismiss()
     }
 
-    // Add a method to set the listener
+
     fun setOnDialogDismissListener(listener: OnDialogDismissListener) {
         this.listener = listener
     }

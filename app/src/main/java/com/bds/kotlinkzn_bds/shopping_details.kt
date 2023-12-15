@@ -2,9 +2,11 @@ package com.bds.kotlinkzn_bds
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.view.View.OnTouchListener
+import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Button
@@ -12,6 +14,8 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.marginLeft
+import androidx.core.view.marginTop
 import com.bumptech.glide.Glide
 
 
@@ -24,6 +28,7 @@ class shopping_details : AppCompatActivity(), ShoppingDetailsPopup.OnDialogDismi
     private  var position = 0
     private lateinit var backPressedBtn: RelativeLayout
     private lateinit var purchaseButton: Button
+    private lateinit var bottomBar: RelativeLayout
    lateinit var scaleUp: Animation
    lateinit var scaleDown: Animation
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,9 +37,30 @@ class shopping_details : AppCompatActivity(), ShoppingDetailsPopup.OnDialogDismi
         val intent = intent
         position = intent.getIntExtra("Position", 1)
         init()
+        isTablet()
+    }
+
+    fun isTablet(){
+
+        val isTablet = resources.getBoolean(R.bool.is_tablet)
+        Log.d(TAG, "init: istablet $isTablet")
+        if (isTablet) {
+            val layoutParamsBar = bottomBar.layoutParams as ViewGroup.MarginLayoutParams
+            layoutParamsBar.leftMargin = 100
+            layoutParamsBar.rightMargin = 100
+            layoutParamsBar.height = dpToPx(100)
+            bottomBar.layoutParams = layoutParamsBar
+
+        }
+    }
+
+    fun dpToPx(dp: Int): Int {
+        val scale = resources.displayMetrics.density
+        return (dp * scale + 0.5f).toInt()
     }
 
     fun init() {
+        bottomBar = findViewById(R.id.bottomTxtBar)
         shoppingTitle = findViewById(R.id.shoppingDetailsTitle)
         shoppingDescription = findViewById(R.id.shoppingDetailsDescription)
         priceTxt = findViewById(R.id.price)

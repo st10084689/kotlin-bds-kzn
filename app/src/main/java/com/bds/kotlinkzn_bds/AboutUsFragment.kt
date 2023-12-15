@@ -11,8 +11,11 @@ import androidx.recyclerview.widget.RecyclerView
 
 class AboutUsFragment : Fragment() {
 
+    // RecyclerViews for different lists
     private lateinit var membersRecView: RecyclerView
     private lateinit var statementRecView: RecyclerView
+
+    // Lists to store data for RecyclerViews
     private val statements = ArrayList<Statement>()
     private val services = ArrayList<Service>()
     private val members = ArrayList<Statement>()
@@ -25,17 +28,20 @@ class AboutUsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        // Inflating the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_about_us, container, false)
-        init(view)
+        init(view)// init method for Initializing the views and data
         return view
     }
 
     private fun init(view: View) {
+        // Adding data to lists
         addStatementList()
         addMembersList()
         addServicesList()
 
-        statementRecView = view.findViewById(R.id.statementRecycler)
+
+        statementRecView = view.findViewById(R.id.statementRecycler)// Setting up RecyclerView for statements
         statementRecView.setHasFixedSize(true)
         statementRecView.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
@@ -43,7 +49,7 @@ class AboutUsFragment : Fragment() {
         statementAdapter.RecyclerType(0)
         statementRecView.adapter = statementAdapter
 
-        membersRecView = view.findViewById(R.id.memberRecycler)
+        membersRecView = view.findViewById(R.id.memberRecycler) // Setting up RecyclerView for members
         membersRecView.setHasFixedSize(true)
         membersRecView.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
@@ -53,7 +59,7 @@ class AboutUsFragment : Fragment() {
 
 
 
-        statementRecView = view.findViewById(R.id.ServicesRecycler)
+        statementRecView = view.findViewById(R.id.ServicesRecycler) // Setting up RecyclerView for services
         statementRecView.setHasFixedSize(true)
         statementRecView.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
@@ -61,6 +67,8 @@ class AboutUsFragment : Fragment() {
         statementRecView.adapter = serviceAdapter
     }
 
+
+    // method to populate the statements list
     private fun addStatementList() {
         val statementOne = Statement(
             "Vision Statement",
@@ -95,6 +103,7 @@ class AboutUsFragment : Fragment() {
         }
     }
 
+    //metod to populate the members
     private fun addMembersList() {
         val memberOne = Statement(
             "Mr. Vinesh Gokool",
@@ -153,6 +162,7 @@ class AboutUsFragment : Fragment() {
         members.add(memberEight)
     }
 
+    //method to populate the services list
     private fun addServicesList() {
         val serviceOne = Service(
             "DEAFBLIND/MULITDISABLED SERVICES",

@@ -5,19 +5,19 @@ package com.bds.kotlinkzn_bds
 import android.app.AlarmManager
 import android.app.NotificationChannel
 import android.app.NotificationManager
-import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.Manifest
+import android.app.job.JobInfo
+import android.app.job.JobScheduler
 import android.content.ActivityNotFoundException
+import android.content.ComponentName
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
 import android.view.animation.TranslateAnimation
 import android.widget.ImageButton
 import android.widget.ImageView
@@ -35,11 +35,6 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.navigation.NavigationView
 import java.net.URLEncoder
-import java.text.ParseException
-import java.text.SimpleDateFormat
-import java.util.Calendar
-import java.util.Locale
-import java.util.TimeZone
 
 class MainActivity : AppCompatActivity(),  HomeFragment.FragmentInteractionListener{
     lateinit var homeIcon: ImageView
@@ -77,7 +72,9 @@ class MainActivity : AppCompatActivity(),  HomeFragment.FragmentInteractionListe
         setContentView(R.layout.activity_main)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         init()
+        checkAndRequestNotificationPermission()
         createNotificationChannel()
+        scheduleJob()
 
 
 
@@ -112,7 +109,7 @@ class MainActivity : AppCompatActivity(),  HomeFragment.FragmentInteractionListe
         val navBarbackground = findViewById<ImageView>(R.id.NavBarBottom)
 
         val isTablet = resources.getBoolean(R.bool.is_tablet)
-
+        Log.d(TAG, "init: istablet $isTablet")
         if (isTablet) {
             navBarbackground.setImageResource(R.drawable.navbarbottomtablet)
         } else {
@@ -324,88 +321,45 @@ class MainActivity : AppCompatActivity(),  HomeFragment.FragmentInteractionListe
 
 
         Log.d(TAG, "setNotification() called")
-
     }
     private fun checkAndRequestNotificationPermission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.POST_NOTIFICATIONS), REQUEST_NOTIFICATION_PERMISSION)
+
         } else {
-            setNotification()
+
         }
     }
-
-    private fun setNotification() {
-        val intent = Intent(applicationContext, AlarmReceiver::class.java)
-        val title = closestEvent?.title
-        val message =  "Event Today! Join Us"
-        intent.putExtra(titleExtra, title)
-        intent.putExtra(messageExtra, message)
-
-        val pendingIntent = PendingIntent.getBroadcast(
-            applicationContext,
-            notificatioID,
-            intent,
-            PendingIntent.FLAG_IMMUTABLE or  PendingIntent.FLAG_UPDATE_CURRENT
-        )
-
-
-        val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
-        if (PendingIntent.getBroadcast(applicationContext, notificatioID, intent,PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_NO_CREATE) == null) {
-            val time = getTime()
-            alarmManager.setExactAndAllowWhileIdle(
-                AlarmManager.RTC_WAKEUP,
-                time,
-                pendingIntent
-            )
-        } else {
-            Log.d(TAG, "Notification already scheduled")
-        }
-    }
-
-
-    private fun getTime(): Long {
-        val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX", Locale.getDefault())
-        dateFormat.timeZone = TimeZone.getTimeZone("Africa/Johannesburg")
-
-        try {
-
-            closestEvent?.date?.let {
-                val date = dateFormat.parse(it)
-
-                date?.let {
-                    return date.time
-                }
-            }
-        } catch (e: ParseException) {
-            e.printStackTrace()
-        }
-        return System.currentTimeMillis()
-    }
-        override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-
-        if (requestCode == REQUEST_NOTIFICATION_PERMISSION) {
-            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-
-
-            } else {
-
-                Toast.makeText(this, "Notification permission denied", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
-
-
-
-
     override fun onEventLoaded(events: List<Event>) {
         if(events.isNotEmpty()){
             closestEvent = events[0]
             checkAndRequestNotificationPermission()
         }
-
-
     }
+    fun scheduleJob(){
+        val componentName = ComponentName(this,NotificationScheduler::class.java)
+        val info = JobInfo.Builder(123, componentName)
+            .setRequiresCharging(false)
+            .setPersisted(true)
+            .setPeriodic(AlarmManager.INTERVAL_FIFTEEN_MINUTES)
+            .build()
+
+        val jobScheduler = getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
+        var resultCode = jobScheduler.schedule(info)
+        
+        if(resultCode == JobScheduler.RESULT_SUCCESS){
+            Log.d(TAG, "scheduleJob: ")
+        }
+        else{
+            Log.d(TAG, "scheduleJob: failed")
+        }
+    }
+
+//    fun cancelJob(){
+//        val jobScheduler = getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
+//        jobScheduler.cancel(123)
+//        Log.d(TAG, "scheduleJob: canceled")
+//    }
 
 }
 
