@@ -10,7 +10,7 @@ class DonationPersonalInfo : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_donation_personal_info)
-        init()
+        init()//method to initialize the vallues
     }
 
     private fun init() {
@@ -21,7 +21,7 @@ class DonationPersonalInfo : AppCompatActivity() {
         }
     }
 
-    private fun showTermsDialog() {
+    private fun showTermsDialog() {//show
         val dialogFragment = TermsDialogFragment()
         dialogFragment.show(supportFragmentManager, "terms_dialog")
     }

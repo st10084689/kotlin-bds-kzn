@@ -29,8 +29,8 @@ class AlphabetSignLanguageRecyclerAdapter(private val signLanguageList: List<Sig
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val model = signLanguageList[position]
 
-        holder.signNameTextView.text = model.title
-        holder.colorBar.setBackgroundColor(Color.parseColor(setColorBar(position)))
+        holder.signNameTextView.text = model.title//sets text to the last
+        holder.colorBar.setBackgroundColor(Color.parseColor(setColorBar(position)))//set the background to a color base on item postition
 
         holder.signCard.setOnClickListener {
 
@@ -43,6 +43,8 @@ class AlphabetSignLanguageRecyclerAdapter(private val signLanguageList: List<Sig
 
     }
 
+
+    //method that returns a hex value based on the position of the item
     private fun setColorBar(position: Int): String{
 
         when(position) {

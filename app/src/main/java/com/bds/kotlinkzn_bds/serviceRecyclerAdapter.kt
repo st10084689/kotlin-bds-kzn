@@ -2,6 +2,7 @@ package com.bds.kotlinkzn_bds
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.Resources
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -19,6 +20,7 @@ class ServiceRecyclerAdapter(private val serviceList: List<Service>) :
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val serviceNameTextView: TextView = itemView.findViewById(R.id.serviceTitle)
         val serviceNameImageView: ImageView = itemView.findViewById(R.id.serviceImage)
+        val serviceCard:CardView = itemView.findViewById(R.id.serviceCard)
     }
 
 
@@ -39,6 +41,14 @@ class ServiceRecyclerAdapter(private val serviceList: List<Service>) :
             .load(model.image)
             .centerCrop()
             .into(holder.serviceNameImageView)
+
+        val screenWidth = Resources.getSystem().displayMetrics.widthPixels//gettting the screens
+        Log.d(TAG, "onBindViewHolder: Screen pixels are $screenWidth")
+        val margin = (screenWidth * 0.85f).toInt()
+
+        val layoutParams = holder.serviceCard.layoutParams as ViewGroup.MarginLayoutParams
+        layoutParams.width = margin
+        holder.serviceCard.layoutParams = layoutParams
 
 
     }

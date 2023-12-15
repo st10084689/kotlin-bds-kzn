@@ -218,7 +218,7 @@ class HomeFragment : Fragment() {
     }
 
 
-    private fun getShoppingData() {
+    private fun getShoppingData() {//method to get the shopping data from the api
         val apiService = ApiService()
 
         val call = apiService.getShopping()
@@ -246,7 +246,7 @@ class HomeFragment : Fragment() {
         })
     }
 
-    private fun getEventData() {
+    private fun getEventData() {//method to get the shopping data from the api
         val apiService = ApiService()
 
         val call = apiService.getEvents()
@@ -273,7 +273,6 @@ class HomeFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<EventsResponse>, t: Throwable) {
-
                 Log.d(TAG, "onFailure: + failed$t call: $call")
                 eventsError.visibility = View.VISIBLE
                 eventsProg.visibility = View.GONE

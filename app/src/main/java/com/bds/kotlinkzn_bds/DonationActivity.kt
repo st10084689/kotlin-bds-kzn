@@ -3,19 +3,23 @@ package com.bds.kotlinkzn_bds
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
+import android.content.res.Resources
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.MotionEvent
 import android.view.View
+import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.RelativeLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
+import com.google.android.material.shape.RelativeCornerSize
 import com.google.gson.Gson
 import okhttp3.Call
 import okhttp3.Callback
@@ -54,6 +58,7 @@ class DonationActivity : AppCompatActivity() {
         setContentView(R.layout.activity_donation)
         reference = generateUniqueReference()
         init()
+        isTablet()
     }
 
     private fun init() {
@@ -107,8 +112,13 @@ class DonationActivity : AppCompatActivity() {
                     selectedPayment!!.isNotEmpty() -> selectedPayment!!.toInt()
                     customAmountEditText.text != null && customAmountEditText.text.toString()
                         .isNotEmpty() -> customAmountEditText.text.toString().toInt()
+
                     else -> {
-                        Toast.makeText(this@DonationActivity, "Please select a donation", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this@DonationActivity,
+                            "Please select a donation",
+                            Toast.LENGTH_SHORT
+                        ).show()
                         return
                     }
                 }
@@ -159,7 +169,8 @@ class DonationActivity : AppCompatActivity() {
         val lineItems: List<InvoicePayments.LineItem> = ArrayList()
 
         if (amount <= 0) {
-            Toast.makeText(this@DonationActivity, "Invalid payment amount", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@DonationActivity, "Invalid payment amount", Toast.LENGTH_SHORT)
+                .show()
             return
         }
 
@@ -199,7 +210,7 @@ class DonationActivity : AppCompatActivity() {
                     sendPaymentGet(responseBody)
                     Log.d(TAG, "onResponse: success: $responseBody")
                     Log.d(TAG, "onResponse: success: $response")
-                    Log.d(TAG, "onResponse: success: "+response.headers)
+                    Log.d(TAG, "onResponse: success: " + response.headers)
                     //zapperId = extractZapperIdFromUrl(responseBody)!!
                 } else {
 
@@ -239,13 +250,14 @@ class DonationActivity : AppCompatActivity() {
         return randomUUID
     }
 
+    //method to show the tax certificate prompt
     private fun showTaxCertificateDialog() {
         val builder = AlertDialog.Builder(this)
 
         builder.setTitle("Tax Certificate")
         builder.setMessage("Do you want a tax certificate?")
         builder.setPositiveButton("Yes") { _, _ ->
-            showWebView()
+            showWebView()//starts the intent to web ladsfafds
         }
 
         builder.setNegativeButton("No") { _, _ ->
@@ -290,4 +302,36 @@ class DonationActivity : AppCompatActivity() {
 //            }
 //        })
 //    }
+
+    //changes the layout if tablet
+    fun isTablet() {
+        val isTablet = resources.getBoolean(R.bool.is_tablet)
+        Log.d(TAG, "init: isTablet $isTablet")
+
+        if (isTablet) {
+            val topSection = findViewById<RelativeLayout>(R.id.menu_relative)
+            val headingSection = findViewById<RelativeLayout>(R.id.heading_section)
+            val donationButtonsRel = findViewById<RelativeLayout>(R.id.donationButtonsRel)
+            val buttonTxt = findViewById<TextView>(R.id.home_txt)
+            val layoutParams = buttonTxt.layoutParams as ViewGroup.MarginLayoutParams
+            val screenWidth = Resources.getSystem().displayMetrics.widthPixels
+            val margin = (screenWidth * 0.15f).toInt()
+            layoutParams.rightMargin =margin
+            buttonTxt.layoutParams = layoutParams
+                setMarginAsPercentage(topSection, 0.15f)
+            setMarginAsPercentage(headingSection, 0.15f)
+            setMarginAsPercentage(donationButtonsRel,0.15f)
+            setMarginAsPercentage(continueButton, 0.15f)
+        }
+    }
+
+    fun setMarginAsPercentage(view: View, percentage: Float) {
+        val screenWidth = Resources.getSystem().displayMetrics.widthPixels
+        val margin = (screenWidth * percentage).toInt()
+
+        val layoutParams = view.layoutParams as ViewGroup.MarginLayoutParams
+        layoutParams.leftMargin = margin
+        layoutParams.rightMargin = margin
+        view.layoutParams = layoutParams
+    }
 }

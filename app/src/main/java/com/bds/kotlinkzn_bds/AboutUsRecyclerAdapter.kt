@@ -10,11 +10,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-
-//import com.bumptech.glide.Glide;
-
-
-//import com.bumptech.glide.Glide;
 class AboutUsRecyclerAdapter(_statements: List<Statement>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var typeRecycler = 0
@@ -27,14 +22,16 @@ class AboutUsRecyclerAdapter(_statements: List<Statement>) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         var view = LayoutInflater.from(parent.context)
             .inflate(R.layout.member_recycler_card, parent, false)
+
+        // Checking the type of RecyclerView and inflating the corresponding layout
         if (typeRecycler == STATEMENT_REC) {
+            // If the type is a statement, inflate the statement layout
             view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.statement_recycler_card, parent, false)
             return StatementItemHolder(view)
         }
-        if (typeRecycler == MEMBER_REC) {
-            return MemberItemHolder(view)
-        }
+
+        // If the type is a member or any other type, inflate the default member layout
         return MemberItemHolder(view)
     }
 

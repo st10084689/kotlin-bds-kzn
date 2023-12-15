@@ -71,11 +71,13 @@ class EventDetails : AppCompatActivity() {
             onBackPressed()
         }
     }
+
+    //method to for the date to be formatted
     fun getDate(date:String?): String {
         val inputDateString = date
         val inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSX")
         val dateTime = LocalDateTime.parse(inputDateString, inputFormatter)
         val outputFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
-        return dateTime.format(outputFormatter)
+        return dateTime.format(outputFormatter)//returns the formatted date
     }
 }
