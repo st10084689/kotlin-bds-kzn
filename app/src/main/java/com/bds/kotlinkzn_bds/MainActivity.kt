@@ -102,6 +102,12 @@ class MainActivity : AppCompatActivity(),  HomeFragment.FragmentInteractionListe
                     openWhatsApp("+27681872167")
                     true
                 }
+              R.id.menu_email_us-> {
+
+                    sendEmail()
+                    true
+                }
+
 
                 else -> false
             }
@@ -235,7 +241,7 @@ class MainActivity : AppCompatActivity(),  HomeFragment.FragmentInteractionListe
 
     private fun openWhatsApp(phoneNumber: String) {
         Log.d(TAG, "openWhatsApp: entered")
-        val message = "Hello" 
+        val message = "Hello kzn blind and deaf society! "
 
         val intent = Intent(Intent.ACTION_VIEW)
         intent.data = Uri.parse("https://wa.me/$phoneNumber/?text=${URLEncoder.encode(message, "UTF-8")}")
@@ -247,6 +253,15 @@ class MainActivity : AppCompatActivity(),  HomeFragment.FragmentInteractionListe
             Toast.makeText(this, "WhatsApp is not installed.", Toast.LENGTH_SHORT).show()
         }
     }
+
+
+        fun sendEmail() {
+            val toEmail = Intent(Intent.ACTION_SEND)
+            toEmail.type = "message/rfc822"
+            toEmail.putExtra(Intent.EXTRA_EMAIL, arrayOf("fundraising@bdskzn.org.za"))
+            toEmail.putExtra(Intent.EXTRA_SUBJECT, "Hello blind and deaf society ")
+            startActivity(Intent.createChooser(toEmail, "Send Email to kzn bds"))
+        }
 
     override fun changeNavBarColors(
         drawableValue: Int,

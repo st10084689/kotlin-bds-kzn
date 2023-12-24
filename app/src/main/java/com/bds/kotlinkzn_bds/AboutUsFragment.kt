@@ -113,30 +113,30 @@ class AboutUsFragment : Fragment() {
         members.add(memberOne)
 
         val memberTwo = Statement(
-            "Mr. Raven Harkoo",
-            "Bachelor of Law of Degree. Long standing attorney in KwaZulu-Natal and Litigation and Labour Specialist.",
-            R.drawable.mr_raven_harkoo
+            "Mr. Ajit Valjee",
+            "Mr Ajit Valjee is the managing director of JMV Textilescialist.",
+            R.drawable.mr_ajit_valjee
         )
         members.add(memberTwo)
 
         val memberThree = Statement(
-            "Mrs A Sewkuran",
-            "Diploma in Cost and Management Accounting, A certificate in Adult Education and Training and a BCOM Law Degree.",
-            R.drawable.mrs_a_sewkuran
+            "Mr. Raven Harkoo",
+            "Bachelor of Law of Degree. Long standing attorney in KwaZulu-Natal and Litigation and Labour Specialist.",
+            R.drawable.mr_raven_harkoo
         )
         members.add(memberThree)
 
         val memberFour = Statement(
-            "Mr Lalit Kumar Thakoprasad Mehta",
-            "Baccalaureus Procurations Degree. Is currently an admitted Attorney and admitted Conveyancer",
-            R.drawable.mr_lalit_kumar_thakoprasad_mehta
+            "Mrs A Ramsumer (Treasurer)",
+            "Anita Ramsumer is a chartered accountant, with 13 years in the NGO sector.",
+            R.drawable.mrs_a_ramsumer
         )
         members.add(memberFour)
 
         val memberFive = Statement(
-            "Mr Deepanand Nundkissore",
-            "Diploma in Accounting and BCOM Accounting Degree. Currently serving as a practicing Chartered Accountant and Certified Financial Planner.",
-            R.drawable.mr_deepanand_nundkissore
+            "Mrs A Sewkuran",
+            "Diploma in Cost and Management Accounting, A certificate in Adult Education and Training and a BCOM Law Degree.",
+            R.drawable.mrs_a_sewkuran
         )
         members.add(memberFive)
 
