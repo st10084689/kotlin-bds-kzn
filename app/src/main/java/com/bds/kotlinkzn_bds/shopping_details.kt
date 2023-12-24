@@ -103,7 +103,7 @@ class shopping_details : AppCompatActivity(), ShoppingDetailsPopup.OnDialogDismi
     fun sendEmail() {
         val toEmail = Intent(Intent.ACTION_SEND)
         toEmail.type = "message/rfc822"
-        toEmail.putExtra(Intent.EXTRA_EMAIL, arrayOf("admin3@bdskzn.co.za"))
+        toEmail.putExtra(Intent.EXTRA_EMAIL, arrayOf("fundraising@bdskzn.org.za"))
         toEmail.putExtra(Intent.EXTRA_SUBJECT, "purchase information for " + shopItem?.title)
         toEmail.putExtra(
             Intent.EXTRA_TEXT,

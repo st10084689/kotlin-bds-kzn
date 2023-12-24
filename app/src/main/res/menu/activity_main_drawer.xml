@@ -4,6 +4,9 @@
     tools:showIn="navigation_view">
         <item
             android:id="@+id/menu_contact_us"
-            android:title="Contact Us" />
+            android:title="Whatsapp Us" />
+        <item
+            android:id="@+id/menu_email_us"
+            android:title="Email Us"/>
 
 </menu>

@@ -17,7 +17,7 @@ class ApiService {
             .build()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://102.37.136.142/")
+            .baseUrl("https://kznbdsapp.online/")
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
